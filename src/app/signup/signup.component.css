@@ -1,0 +1,17 @@
+.wrapper-div {
+  max-width: 540px;
+}
+.row {
+  display: flex;
+  justify-content: center;
+}
+.btn {
+  width: 14rem;
+}
+.btn:hover {
+  background-color: #017fec;
+}
+.btn:focus {
+  outline: none;
+  box-shadow: none;
+}
