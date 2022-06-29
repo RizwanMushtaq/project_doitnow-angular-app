@@ -19,7 +19,6 @@
   box-shadow: none;
 }
 label {
-  font-style: italic;
-  color: #5bc0de;
+  color: indigo;
   cursor: pointer;
 }

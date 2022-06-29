@@ -6,8 +6,8 @@ import { HomeComponent } from './home/home.component';
 import { ErrorPageComponent } from './lib/error-page/error-page.component';
 
 const routes: Routes = [
-  { path: '', component: LoginComponent },
-  { path: 'login', redirectTo: '' },
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'home', component: HomeComponent },
   { path: 'not-found', component: ErrorPageComponent },

@@ -1,32 +1,38 @@
-<div class="container wrapper-div">
-  <div class="row mt-5 mb-5">
-    <div class="col-sm-10">
-      <h1>doitnow 😊</h1>
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+  <div class="container wrapper-div">
+    <div class="row mt-5 mb-5">
+      <div class="col-sm-10">
+        <h1>doitnow 😊</h1>
+      </div>
+    </div>
+    <div class="mb-3 row">
+      <div class="col-sm-10">
+        <input type="text" class="form-control" placeholder="username" formControlName="username">
+      </div>
+    </div>
+    <div class="mb-3 row">
+      <div class="col-sm-10">
+        <input type="password" class="form-control" placeholder="password" formControlName="password">
+      </div>
+    </div>
+    <div class="mb-5 row">
+      <div class="col-sm-10 forgot-password-label">
+        <label> forgot password 😂</label>
+      </div>
+    </div>
+    <div class="mb-3 row">
+      <div class="col-sm-10">
+        <button
+          type="submit"
+          class="btn btn-primary btn-lg"
+          [disabled]="!loginForm.valid"
+        >Login</button>
+      </div>
+    </div>
+    <div class="mb-3 row">
+      <div class="col-sm-10">
+        <label routerLink="/signup"> Not a member? Signup now</label>
+      </div>
     </div>
   </div>
-  <div class="mb-3 row">
-    <div class="col-sm-10">
-      <input type="text" class="form-control" placeholder="username">
-    </div>
-  </div>
-  <div class="mb-3 row">
-    <div class="col-sm-10">
-      <input type="password" class="form-control" placeholder="password">
-    </div>
-  </div>
-  <div class="mb-5 row">
-    <div class="col-sm-10 forgot-password-label">
-      <label class=""> forgot password 😂</label>
-    </div>
-  </div>
-  <div class="mb-3 row">
-    <div class="col-sm-10">
-      <button type="button" class="btn btn-primary btn-lg">Login</button>
-    </div>
-  </div>
-  <div class="mb-3 row">
-    <div class="col-sm-10">
-      <label class=""> Not a member? Signup now</label>
-    </div>
-  </div>
-</div>
+</form>
