@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { LoginService } from './login.service';
 import { Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
@@ -10,11 +10,11 @@ import { HttpErrorResponse } from '@angular/common/http';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
-  public loginForm: FormGroup;
+  public loginForm: UntypedFormGroup;
   public credentialsIncorrect = false;
 
   constructor(
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private loginService: LoginService,
     private router: Router
   ) {}
