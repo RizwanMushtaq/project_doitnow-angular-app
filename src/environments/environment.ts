@@ -6,6 +6,7 @@ export const environment = {
   production: false,
   URL: {
     login: 'http://localhost:3000/auth/login',
+    userTodos: 'http://localhost:3000/todos',
   },
 };
 
