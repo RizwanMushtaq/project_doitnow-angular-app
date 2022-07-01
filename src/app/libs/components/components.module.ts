@@ -1,11 +1,9 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { ErrorPageComponent } from './error-page/error-page.component';
 
 @NgModule({
   declarations: [ErrorPageComponent],
-  imports: [CommonModule],
+  imports: [],
   providers: [],
-  exports: [ErrorPageComponent],
 })
-export class LibModule {}
+export class ComponentsModule {}

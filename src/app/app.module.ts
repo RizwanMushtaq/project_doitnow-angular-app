@@ -10,6 +10,7 @@ import { HomeModule } from './home/home.module';
 
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
+import { LibsModule } from './libs/libs.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -22,6 +23,7 @@ import { HttpClientModule } from '@angular/common/http';
     LoginModule,
     SignupModule,
     HomeModule,
+    LibsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
