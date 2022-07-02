@@ -6,6 +6,7 @@ import {
   HttpRequest,
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { UserInterface } from '../types/user.Interface';
 
 @Injectable()
 export class TokenInterceptor implements HttpInterceptor {
@@ -13,19 +14,20 @@ export class TokenInterceptor implements HttpInterceptor {
     request: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
-    console.log(request);
+    const userInfoString: string | null = localStorage.getItem('userInfo');
+    let userInfo: UserInterface;
 
-    const token = localStorage.getItem('bearerToken');
-    if (!token) {
-      return next.handle(request);
+    if (userInfoString) {
+      userInfo = JSON.parse(userInfoString);
+      let token = userInfo.access_token;
+      const modifiedRequest = request.clone({
+        setHeaders: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      return next.handle(modifiedRequest);
     }
 
-    const modifiedRequest = request.clone({
-      setHeaders: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
-    console.log(modifiedRequest);
-    return next.handle(modifiedRequest);
+    return next.handle(request);
   }
 }
