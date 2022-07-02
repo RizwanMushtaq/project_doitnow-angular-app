@@ -1,7 +1,7 @@
 export interface TodoInterface {
   todoId: number;
   userId: number;
-  date: string;
+  date: Date;
   todoItem: string;
   isDone: boolean;
 }

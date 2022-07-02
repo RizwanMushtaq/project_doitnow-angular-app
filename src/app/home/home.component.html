@@ -1,10 +1,12 @@
-<p>home works!</p>
-<div
-  *ngFor="let todo of todoList"
->
-  {{ todo.todoItem }}
-</div>
-<div>
-<app-calender [todoList]="todoList"></app-calender>
-<app-todo-list [todoList]="todoList"></app-todo-list>
+<div class="container wrapper-div">
+  <div class="row mt-1 mb-3">
+    <div class="col">
+      <h1>doitnow</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <app-calender [todoList]="todoList"></app-calender>
+    </div>
+  </div>
 </div>

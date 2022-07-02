@@ -1,1 +1,40 @@
-<p>calender works!</p>
+<div class="wrapper-div">
+  <div class="calender-header mb-3">
+    <div class="btn btn-primary" (click)="previousMonth()"> < </div>
+    <div><p>{{ monthHeader | date : 'MMMM y'}}</p></div>
+    <div class="btn btn-primary" (click)="nextMonth()"> > </div>
+  </div>
+  <div class="calender-body">
+    <div class="week-container">
+      <div><p>M</p></div>
+      <div><p>T</p></div>
+      <div><p>W</p></div>
+      <div><p>T</p></div>
+      <div><p>F</p></div>
+      <div><p>S</p></div>
+      <div><p>S</p></div>
+    </div>
+    <div *ngFor="let week of month" class="days-container">
+      <div *ngFor="let day of week">
+        <div *ngIf="(day | date : 'MMMM') !== (monthHeader | date: 'MMMM') else currentMonthDays" class="different-month-days">
+          <div>{{day | date : 'd'}}</div>
+        </div>
+        <ng-template #currentMonthDays>
+          <div *ngIf="(day | date : 'longDate') === (today | date: 'longDate') && (day | date : 'longDate') === (selectedDay | date: 'longDate')" class="today selected-day current-month-days">
+            <div (click)="selectDay($event)">{{day | date : 'd'}}</div>
+          </div>
+          <div *ngIf="(day | date : 'longDate') === (today | date: 'longDate') && (day | date : 'longDate') !== (selectedDay | date: 'longDate')" class="today current-month-days">
+            <div (click)="selectDay($event)">{{day | date : 'd'}}</div>
+          </div>
+          <div *ngIf="(day | date : 'longDate') !== (today | date: 'longDate') && (day | date : 'longDate') === (selectedDay | date: 'longDate')" class="selected-day current-month-days">
+            <div (click)="selectDay($event)">{{day | date : 'd'}}</div>
+          </div>
+          <div *ngIf="(day | date : 'longDate') !== (today | date: 'longDate') && (day | date : 'longDate') !== (selectedDay | date: 'longDate')" class="current-month-days">
+            <div (click)="selectDay($event)">{{day | date : 'd'}}</div>
+          </div>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+</div>
+
