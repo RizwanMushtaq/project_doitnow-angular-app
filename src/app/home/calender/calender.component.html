@@ -1,0 +1,76 @@
+<div class="wrapper-div">
+  <div class="calender-header mb-3">
+    <div class="btn btn-primary" (click)="previousMonth()">
+      <img src="assets/navigate_before_black_24dp.svg" alt="previous month icon">
+    </div>
+    <div><h4>{{ monthHeader | date : 'MMMM y'}}</h4></div>
+    <div class="btn btn-primary" (click)="nextMonth()">
+      <img src="assets/navigate_next_black_24dp.svg" alt="next month icon">
+    </div>
+  </div>
+  <div class="calender-body">
+    <div class="week-container">
+      <div><p>M</p></div>
+      <div><p>T</p></div>
+      <div><p>W</p></div>
+      <div><p>T</p></div>
+      <div><p>F</p></div>
+      <div><p>S</p></div>
+      <div><p>S</p></div>
+    </div>
+    <div *ngFor="let week of month" class="days-container">
+      <div *ngFor="let day of week">
+        <div *ngIf="(day | date : 'MMMM') !== (monthHeader | date: 'MMMM') else currentMonthDays" class="day-container different-month-days not-selected-day">
+          <div class="number-container">{{day | date : 'd'}} </div>
+          <div class="dot-container-different-month">
+            <ng-container *ngFor="let date of uniqueDatesList">
+              <div class="dot-div" *ngIf="date == (day | date: 'yyyy-MM-dd')">
+              </div>
+            </ng-container>
+          </div>
+        </div>
+
+        <ng-template #currentMonthDays>
+          <div *ngIf="(day | date : 'longDate') === (today | date: 'longDate') && (day | date : 'longDate') === (selectedDay | date: 'longDate')" class="day-container today selected-day current-month-days">
+            <div (click)="selectDay($event)" class="number-container">{{day | date : 'd'}}</div>
+            <div class="dot-container-current-month">
+              <ng-container *ngFor="let date of uniqueDatesList">
+                <div class="dot-div" *ngIf="date == (day | date: 'yyyy-MM-dd')">
+                </div>
+              </ng-container>
+            </div>
+          </div>
+          <div *ngIf="(day | date : 'longDate') === (today | date: 'longDate') && (day | date : 'longDate') !== (selectedDay | date: 'longDate')" class="day-container today current-month-days not-selected-day">
+            <div (click)="selectDay($event)" class="number-container">{{day | date : 'd'}}</div>
+            <div class="dot-container-current-month">
+              <ng-container *ngFor="let date of uniqueDatesList">
+                <div class="dot-div" *ngIf="date == (day | date: 'yyyy-MM-dd')">
+                </div>
+              </ng-container>
+            </div>
+          </div>
+          <div *ngIf="(day | date : 'longDate') !== (today | date: 'longDate') && (day | date : 'longDate') === (selectedDay | date: 'longDate')" class="day-container selected-day current-month-days">
+            <div (click)="selectDay($event)" class="number-container">{{day | date : 'd'}}</div>
+            <div class="dot-container-current-month">
+              <ng-container *ngFor="let date of uniqueDatesList">
+                <div class="dot-div" *ngIf="date == (day | date: 'yyyy-MM-dd')">
+                </div>
+              </ng-container>
+            </div>
+          </div>
+          <div *ngIf="(day | date : 'longDate') !== (today | date: 'longDate') && (day | date : 'longDate') !== (selectedDay | date: 'longDate')" class="day-container current-month-days not-selected-day">
+            <div (click)="selectDay($event)" class="number-container">{{day | date : 'd'}}</div>
+            <div class="dot-container-current-month">
+              <ng-container *ngFor="let date of uniqueDatesList">
+                <div class="dot-div" *ngIf="date == (day | date: 'yyyy-MM-dd')">
+                </div>
+              </ng-container>
+            </div>
+          </div>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+</div>
+
+

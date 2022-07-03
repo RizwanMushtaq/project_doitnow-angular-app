@@ -8,7 +8,7 @@ export class HomeService {
   constructor(private httpClient: HttpClient) {}
 
   public getTodos(): Observable<any> {
-    let params = new HttpParams().set('userId', '2');
+    let params = new HttpParams().set('userId', '1');
     return this.httpClient.get(environment.URL.userTodos, {
       params,
     });

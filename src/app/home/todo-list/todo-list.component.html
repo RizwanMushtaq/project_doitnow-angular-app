@@ -1,0 +1,17 @@
+<div *ngFor="let todo of todoList">
+  <ul class="list-group">
+    <li class="list-group-item list-item">
+      <div class="li-first-part">
+        <input type="checkbox" checked *ngIf="todo.isDone else notChecked">
+        <ng-template #notChecked>
+          <input type="checkbox">
+        </ng-template>
+        <div class="todoItem">{{ todo.todoItem }}</div>
+      </div>
+      <div class="li-second-part">
+        <img src="assets/edit_black_24dp.svg" (click)="editTodoItem()" alt="edit todo item icon">
+        <img src="assets/delete_black_24dp.svg" (click)="deleteTodoItem()" alt="delete todo item icon">
+      </div>
+    </li>
+  </ul>
+</div>

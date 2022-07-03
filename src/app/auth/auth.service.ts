@@ -27,7 +27,7 @@ export class AuthService {
       })
       .pipe(
         tap((data) => {
-          localStorage.setItem('bearerToken', data.access_token);
+          localStorage.setItem('userInfo', JSON.stringify(data));
         })
       );
   }

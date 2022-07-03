@@ -1,1 +1,24 @@
-<p>home works!</p>
+<div class="container wrapper-div">
+  <div class="row mt-1 mb-3">
+    <div class="col">
+      <h1>doitnow</h1>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col">
+      <app-calender [todoList]="todoList" [uniqueDatesList]="uniqueDatesList" ></app-calender>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col">
+      <button class="btn btn-outline-primary add-button">
+        <img src="assets/add_black_24dp.svg" alt="add todo item icon">
+      </button>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col">
+      <app-todo-list [todoList]="todoList"></app-todo-list>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,21 @@
+.list-item {
+  text-align: left;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.list-item .li-first-part {
+  width: 75%;
+  text-wrap: normal;
+  text-align: left;
+  display: flex;
+}
+.list-item .li-second-part {
+  width: 25%;
+  display: flex;
+  justify-content: right;
+  align-items: center;
+}
+.todoItem {
+  padding-left: 8px;
+}
