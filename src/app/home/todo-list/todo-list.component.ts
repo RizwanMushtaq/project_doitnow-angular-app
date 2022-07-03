@@ -12,4 +12,12 @@ export class TodoListComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
+
+  editTodoItem() {
+    console.log('edit todo item');
+  }
+
+  deleteTodoItem() {
+    console.log('delete todo item');
+  }
 }

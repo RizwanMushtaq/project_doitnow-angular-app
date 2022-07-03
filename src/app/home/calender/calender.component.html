@@ -1,8 +1,12 @@
 <div class="wrapper-div">
   <div class="calender-header mb-3">
-    <div class="btn btn-primary" (click)="previousMonth()"> < </div>
+    <div class="btn btn-primary" (click)="previousMonth()">
+      <img src="assets/navigate_before_black_24dp.svg" alt="previous month icon">
+    </div>
     <div><h4>{{ monthHeader | date : 'MMMM y'}}</h4></div>
-    <div class="btn btn-primary" (click)="nextMonth()"> > </div>
+    <div class="btn btn-primary" (click)="nextMonth()">
+      <img src="assets/navigate_next_black_24dp.svg" alt="next month icon">
+    </div>
   </div>
   <div class="calender-body">
     <div class="week-container">
@@ -68,7 +72,5 @@
     </div>
   </div>
 </div>
-<div *ngFor="let date of uniqueDatesList">
-  {{date}}
-</div>
+
 
