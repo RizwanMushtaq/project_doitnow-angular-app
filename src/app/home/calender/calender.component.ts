@@ -10,7 +10,9 @@ import { addDays, subDays } from 'date-fns';
 })
 export class CalenderComponent implements OnInit {
   @Input() todoList: TodoInterface[];
+  @Input() uniqueDatesList: string[];
   month: Date[][];
+  monthFlatList: Date[];
   monthHeader: Date;
   today: Date;
   selectedDay: Date;
@@ -22,20 +24,17 @@ export class CalenderComponent implements OnInit {
     this.monthHeader = this.month[3][0];
     this.today = new Date();
     this.selectedDay = new Date();
-
+    this.monthFlatList = this.month.flat();
     console.log(this.month);
-    console.log(this.monthHeader);
-    console.log(this.today);
+    console.log(this.monthFlatList);
   }
 
   nextMonth() {
-    console.log(this.monthHeader);
     this.monthHeader = addDays(this.monthHeader, 30);
     this.month = this.calenderService.getMonth(this.monthHeader)();
   }
 
   previousMonth() {
-    console.log(this.monthHeader);
     this.monthHeader = subDays(this.monthHeader, 30);
     this.month = this.calenderService.getMonth(this.monthHeader)();
   }
@@ -47,7 +46,5 @@ export class CalenderComponent implements OnInit {
     const year = this.monthHeader.getFullYear();
 
     this.selectedDay = new Date(year, month, day);
-
-    console.log(this.selectedDay);
   }
 }

@@ -10,19 +10,59 @@
   width: 100%;
   height: 300px;
 }
-.week-container, .days-container {
+.week-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.week-container div, .days-container div{
+.week-container div{
   width: 48px;
   height: 48px;
   padding: 4px;
   /*border: 1px solid black;*/
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.days-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.days-container .day-container{
+  width: 48px;
+  height: 48px;
+  padding: 4px;
+  /*border: 1px solid black;*/
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.number-container {
+  width: 100%;
+  height: 50%;
+}
+.dot-container-different-month, .dot-container-current-month {
+  width: 100%;
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.dot-container-different-month .dot-div {
+  width: 8px;
+  height: 8px;
+  background-color: gray;
+  border-radius: 50%;
+}
+.dot-container-current-month .dot-div{
+  width: 8px;
+  height: 8px;
+  background-color: blue;
+  border-radius: 50%;
 }
 
 .today {
@@ -33,6 +73,9 @@
 }
 .selected-day {
   border: 1px solid green;
+}
+.not-selected-day {
+  border: 1px solid white;
 }
 .different-month-days {
   color: gray;
