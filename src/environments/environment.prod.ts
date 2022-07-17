@@ -1,7 +1,7 @@
 export const environment = {
   production: true,
   URL: {
-    login: 'http://localhost:3000/auth/login',
-    userTodos: 'http://localhost:3000/todos',
+    login: 'https://doitnow-nest-js-service.herokuapp.com//auth/login',
+    userTodos: 'https://doitnow-nest-js-service.herokuapp.com/todos',
   },
 };
